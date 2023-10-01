@@ -19,12 +19,6 @@ namespace TpIntegradorSofttekFront.Controllers
         }
         public IActionResult Login()
 		{
-			//ClaimsPrincipal claimUser = HttpContext.User;
-			//if(claimUser.Identity.IsAuthenticated)
-			//{
-   //             return RedirectToAction("Index", "Home");
-   //         }
-
 			return View();
 		}
 
@@ -37,7 +31,6 @@ namespace TpIntegradorSofttekFront.Controllers
 			if (loginResult == null)
 			{
 				ViewBag.ErrorLogin = "Usuario o clave inválidos.";
-				//return View("~/Views/Login/Login.cshtml" );
 				return RedirectToAction("Login", "Login");
 			}
 			var loginSuccess = JsonConvert.DeserializeObject<SuccessResponse<Login>>(loginResult.Value.ToString());
@@ -65,7 +58,7 @@ namespace TpIntegradorSofttekFront.Controllers
             homeViewModel.Token = login.Token;
 
 			return View("~/Views/Home/Index.cshtml", homeViewModel);
-			//return RedirectToAction("Index", "Home");
+			
         }
 
 		public async Task<IActionResult> CerrarSesion()
