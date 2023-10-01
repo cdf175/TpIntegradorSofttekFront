@@ -7,7 +7,7 @@ let table = new DataTable('#users', {
         headers: { "Authorization": "Bearer " + token }
     },
     columns: [
-        { data: 'id', title: 'Id' },
+        { data: 'id', title: 'Codigo' },
         { data: 'name', title: 'Nombre' },
         { data: 'dni', title: 'DNI' },
         { data: 'type', title: 'Rol' },
@@ -28,7 +28,21 @@ let table = new DataTable('#users', {
             }
         }
 
-    ]
+    ],
+    "language": {
+        "lengthMenu": "Mostrar _MENU_ registros por pagina",
+        "zeroRecords": "No se encontraron resgistros - sorry",
+        "info": "Pagina _PAGE_ de _PAGES_",
+        "infoEmpty": "No hay registros disponibles",
+        "infoFiltered": "(Filtrada de _MAX_ registros totales)",
+        "search": "Buscar: ",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+    }
 });
 
 

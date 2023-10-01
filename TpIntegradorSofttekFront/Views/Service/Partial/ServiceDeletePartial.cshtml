@@ -1,21 +1,20 @@
-﻿@model TpIntegradorSofttekFront.ViewModels.UserViewModel
-<div class="modal fade" id="userDModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+﻿@model TpIntegradorSofttekFront.ViewModels.ServiceViewModel
+<div class="modal fade" id="serviceDModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Eliminacíon de Usuario.</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">Eliminacíon de Servicio.</h5>
             </div>
-            @using (Html.BeginForm("DeleteUser", "/User", FormMethod.Post))
+            @using (Html.BeginForm("DeleteService", "/Service", FormMethod.Post))
             {
                 <div class="modal-body">
                     @Html.HiddenFor(x=> x.Id)
-                    @Html.HiddenFor(x=> x.Name)
-                    @Html.HiddenFor(x=> x.Password)
-                    @Html.HiddenFor(x=> x.Dni)
-                    @Html.HiddenFor(x=> x.Email)
-                    @Html.HiddenFor(x=> x.Type)
+                    @Html.HiddenFor(x=> x.Description)
+                    @Html.HiddenFor(x=> x.State)
+                    @Html.HiddenFor(x=> x.HourValue)
+                    
                     <div class="row">
-                        <h3>Desea eliminar este usuario?</h3>
+                        <h3>Desea eliminar este servicio?</h3>
                     </div>
                 </div>
 

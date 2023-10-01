@@ -69,8 +69,7 @@ namespace TpIntegradorSofttekFront.Controllers
             }
             
             return View("~/Views/User/Index.cshtml");
-            //return PartialView("~/Views/User/Partial/UserDeletePartial.cshtml");
-            // return RedirectToAction("Index", "User");
+
         }
     }
 }
