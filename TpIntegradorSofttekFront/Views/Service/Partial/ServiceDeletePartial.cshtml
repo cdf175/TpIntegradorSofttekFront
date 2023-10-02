@@ -1,0 +1,28 @@
+﻿@model TpIntegradorSofttekFront.ViewModels.ServiceViewModel
+<div class="modal fade" id="serviceDModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Eliminacíon de Servicio.</h5>
+            </div>
+            @using (Html.BeginForm("DeleteService", "/Service", FormMethod.Post))
+            {
+                <div class="modal-body">
+                    @Html.HiddenFor(x=> x.Id)
+                    @Html.HiddenFor(x=> x.Description)
+                    @Html.HiddenFor(x=> x.State)
+                    @Html.HiddenFor(x=> x.HourValue)
+                    
+                    <div class="row">
+                        <h3>Desea eliminar este servicio?</h3>
+                    </div>
+                </div>
+
+                <div class="modal-footer w-100">
+                    <button type="button" class="btn btn-secondary w-25" data-bs-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-danger w-25" id="btnGuardar">Si</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
