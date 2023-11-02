@@ -6,6 +6,9 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalCenterTitle">Alta y/o modificación de Servicio.</h5>
             </div>
+            <select id="cmbProyetos">
+            </select>
+
             @using (Html.BeginForm("SaveProyect", "/Proyect", FormMethod.Post))
             {
                 <div class="modal-body">
@@ -25,7 +28,15 @@
                     <div class="row">
                         <div class="col-md-6 mt-1 mb-3">
                             <label class="col-md-2 form-control-label">Estado</label>
-                            @Html.EditorFor(x=> x.State, new {htmlAttributes = new {@class = "col-md-8 form-control" } })
+                            @Html.DropDownListFor(x=> x.State,
+                            new SelectList(new List<SelectListItem>
+                                {
+                                new SelectListItem { Text = "Pendiente", Value = "1" },
+                                new SelectListItem { Text = "Confirmado", Value = "2" },
+                                new SelectListItem { Text = "Terminado", Value = "3" }
+                                }, "Value", "Text"), 
+                            "Seleccione..",
+                            new {htmlAttributes = new {@class = "col-md-8 form-control" } })
                         </div>
 
                  
@@ -41,3 +52,5 @@
         </div>
     </div>
 </div>
+
+<script src="~/js/proyects/proyectpartial.js"></script>

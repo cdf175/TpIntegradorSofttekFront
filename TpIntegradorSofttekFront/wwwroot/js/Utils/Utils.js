@@ -19,3 +19,19 @@ function getCookie(nombre) {
         if (c.indexOf(nombre) == 0) return c.substring(nombre.length, c.length)
     }
 }
+
+function modalMessage(idDivMessage) {
+    debugger
+    $.ajax({
+        type: "GET",
+        url: "/Service/ServiceAddPartial",
+        data: "",
+        contentType: 'application/json',
+        'dataType': "html",
+        success: function (result) {
+            $('#messagePartial').html(result);
+            $('#messageModal').modal('show');
+        }
+
+    });
+}

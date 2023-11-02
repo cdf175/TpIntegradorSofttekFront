@@ -41,3 +41,53 @@ let table = new DataTable('#works', {
         }
     }
 });
+
+
+function addWork() {
+    debugger
+    $.ajax({
+        type: "GET",
+        url: "/Work/WorkAddPartial",
+        data: "",
+        contentType: 'application/json',
+        'dataType': "html",
+        success: function (result) {
+            $('#workAddPartial').html(result);
+            $('#workModal').modal('show');
+        }
+
+    });
+}
+
+function editWork(data) {
+    debugger
+    $.ajax({
+        type: "POST",
+        url: "/Work/WorkAddPartial",
+        data: JSON.stringify(data),
+        contentType: 'application/json',
+        'dataType': "html",
+        success: function (result) {
+            $('#workAddPartial').html(result);
+            $('#workModal').modal('show');
+        }
+
+    });
+}
+
+function deleteWork(data) {
+    debugger
+    $.ajax({
+        type: "POST",
+        url: "/Work/WorkDeletePartial",
+        data: JSON.stringify(data),
+        contentType: 'application/json',
+        'dataType': "html",
+        success: function (result) {
+            $('#workDeletePartial').html(result);
+            $('#workDModal').modal('show');
+        },
+        error: function () { }
+
+    });
+}

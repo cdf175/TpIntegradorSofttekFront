@@ -1,0 +1,58 @@
+﻿@model TpIntegradorSofttekFront.ViewModels.WorkViewModel
+
+<div class="modal fade" id="workModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Alta y/o modificación de Servicio.</h5>
+            </div>
+            <select id="cmbWorks">
+            </select>
+
+            @using (Html.BeginForm("SaveWork", "/Work", FormMethod.Post))
+            {
+                <div class="modal-body">
+                    @Html.HiddenFor(x=> x.Id)
+                    <div class="row">
+                        <div class="col-md-6 mt-1 mb-3">
+                            <label class="col-md-4 form-control-label">Fecha</label>
+                            @Html.EditorFor(x=> x.Date, new {htmlAttributes = new {@class = "col-md-8 form-control" } })
+                        </div>
+
+                        <div class="col-md-6 mt-1 mb-3">
+                            <label class="col-md-2 form-control-label">Cod Proyecto</label>                         
+                            @Html.EditorFor(x=> x.ProyectId, new {htmlAttributes = new {@class = "col-md-8 form-control" } })
+                        </div>
+
+                        <div class="col-md-6 mt-1 mb-3">
+                            <label class="col-md-2 form-control-label">Cod Servicio</label>
+                            @Html.EditorFor(x=> x.ServiceId, new {htmlAttributes = new {@class = "col-md-8 form-control" } })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mt-1 mb-3">
+                            <label class="col-md-2 form-control-label">Cantidad horas</label>
+                            @Html.EditorFor(x=> x.HourQuantity, new {htmlAttributes = new {@class = "col-md-8 form-control" } })
+                        </div>
+
+                        <div class="col-md-6 mt-1 mb-3">
+                            <label class="col-md-2 form-control-label">Costo por hora</label>
+                            @Html.EditorFor(x=> x.HourValue, new {htmlAttributes = new {@class = "col-md-8 form-control" } })
+                        </div>
+
+                 
+                    </div>
+                    
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-success" id="btnGuardar">Guardar</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script src="~/js/works/workpartial.js"></script>

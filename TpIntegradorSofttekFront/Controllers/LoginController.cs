@@ -31,7 +31,7 @@ namespace TpIntegradorSofttekFront.Controllers
 			if (loginResult == null)
 			{
 				ViewBag.ErrorLogin = "Usuario o clave inválidos.";
-				return RedirectToAction("Login", "Login");
+				return View("~/Views/Login/Login.cshtml");
 			}
 			var loginSuccess = JsonConvert.DeserializeObject<SuccessResponse<Login>>(loginResult.Value.ToString());
 			Login login = loginSuccess.Data;
@@ -56,8 +56,8 @@ namespace TpIntegradorSofttekFront.Controllers
 
             var homeViewModel = new HomeViewModel();
             homeViewModel.Token = login.Token;
-
-			return View("~/Views/Home/Index.cshtml", homeViewModel);
+            //ViewBag.Messagge = login;
+            return View("~/Views/Home/Index.cshtml", homeViewModel);
 			
         }
 
